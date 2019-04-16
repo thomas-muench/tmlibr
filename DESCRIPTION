@@ -1,0 +1,18 @@
+Package: tmlibr
+Title: My Personal R Library of Miscellaneous Auxiliary Functions.
+Version: 0.1.0
+Authors@R: c(person("Thomas", "Münch", email = "thomas.muench@awi.de",
+    role = c("aut", "cre")))
+Description: This R package contains my personal library of auxiliary functions
+    that I use for my daily work, including routines for handling graphics
+    devices, plotting, and simple mathematical problems. I have it loaded
+    automatically when starting a new R session.
+Depends: R (>= 3.3.1)
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+Suggests:
+URL: https://github.com/thomas-muench/tmlibr
+BugReports: https://github.com/thomas-muench/timlibr/issues
