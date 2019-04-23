@@ -11,7 +11,7 @@
 ##' @param pch.xoff horizontal adjustment of the point characters at the end
 ##' points of the legend lines to improve visual appearance; in units of
 ##' character widths (defaults to 0.2).
-##' @inheritParams base::legend
+##' @inheritParams graphics::legend
 ##' @return the value returned by \code{legend}.
 ##' @seealso \code{\link{legend}}
 ##' @author Thomas Münch
