@@ -13,6 +13,7 @@
 ##' @seealso \code{\link{source}}
 ##' @source see the respective example in \code{?source}.
 ##' @author Thomas Münch
+##' @export
 sourceDir <- function(path, trace = TRUE, local = FALSE, ...) {
     
     cat("Sourcing files...\n")

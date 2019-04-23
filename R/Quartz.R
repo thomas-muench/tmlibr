@@ -20,9 +20,12 @@
 ##' Quartz()
 ##'
 ##' # Store empty plot in pdf format in local directory
-##' Quartz(file = paste0(getwd(), "test-quartz.pdf"))
+##' \dontrun{
+##' Quartz(file = file.path(getwd(), "test-quartz.pdf"))
 ##' dev.off()
+##' }
 ##' @author Thomas Münch
+##' @export
 Quartz <- function(file = NULL, type = "native",
                    height = 6, width = 8, ...) {
 

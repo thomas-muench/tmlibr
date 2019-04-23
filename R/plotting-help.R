@@ -53,6 +53,7 @@ bquote.font <- function(expr, font = 1) {
 ##' plot(1 : 10, xlab = ax.isolab(), ylab = ax.isolab("dtr"))
 ##' plot(1 : 10, xlab = ax.isolab(font = 2),
 ##'              ylab = ax.isolab("d-excess", font = 2))
+##' @export
 ax.isolab <- function(x = "oxy", font = par()$font.axis) {
 
     iso <- NULL
@@ -97,6 +98,7 @@ ax.isolab <- function(x = "oxy", font = par()$font.axis) {
 ##' @examples
 ##' plot(1 : 10, xlab = ax.celsiuslab(),
 ##'              ylab = ax.celsiuslab("Sea surface temperature", font = 2))
+##' @export
 ax.celsiuslab <- function(label = "Temperature", font = par()$font.axis) {
 
     expr <- bquote(.(label) * " (" * degree * "C)")
@@ -121,6 +123,7 @@ ax.celsiuslab <- function(label = "Temperature", font = par()$font.axis) {
 ##' @examples
 ##' plot(1 : 10, xlab = ax.freqlab(),
 ##'              ylab = ax.freqlab(unit = "s", inverse = TRUE, font = 2))
+##' @export
 ax.freqlab <- function(label = if (!inverse) "Frequency" else "Time period",
                        unit = "yr", font = par()$font.axis, inverse = FALSE) {
 
@@ -149,6 +152,7 @@ ax.freqlab <- function(label = if (!inverse) "Frequency" else "Time period",
 ##' @author Thomas Münch
 ##' @examples
 ##' plot(1 : 10, xlab = ax.freqlab(), ylab = ax.psdlab())
+##' @export
 ax.psdlab <- function(label = "Power spectral density",
                       v.unit = "\u2030", t.unit = "yr",
                       font = par()$font.axis) {

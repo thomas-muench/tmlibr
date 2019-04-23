@@ -22,10 +22,11 @@
 ##' @author Thomas Münch
 ##' @seealso \code{\link{par}}
 ##' @examples
-##' op <- par(SetPlotPar())
+##' op <- par(LoadGraphicsPar())
 ##' plot(1 : 10, main = "Example plot",
 ##'      xlab = "X title", ylab = "Y title", type = "l")
 ##' par(op)
+##' @export
 LoadGraphicsPar <- function(mar = c(5, 5, 0.5, 0.5), lwd = 1, las = 1,
                             font.lab = 1, font.axis = 1, cex.main = 1.5,
                             cex.lab = 1.5, cex.axis = 1.25, ...) {
