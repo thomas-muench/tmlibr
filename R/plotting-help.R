@@ -245,6 +245,37 @@ rel.hist <- function(x, breaks = "Sturges",
 
 }
 
+##' Add plot session information
+##'
+##' Add session information to an existing plot: script name, date of plot
+##' creation, etc.
+##' @param script the name of the plot creating script.
+##' @param add.info additional information to be added (optional).
+##' @param incr fraction of the user coordinate range to use as incremental
+##' distance from the default position of the information text in the upper
+##' right corner of the plot region.
+##' @author Thomas Münch
+##' @examples
+##' plot(1 : 10, type = "l")
+##' PlotStamp(script = "interactive",
+##'           add.info = "Illustrated usage of PlotStamp function")
+##' @export
+PlotStamp <- function(script = "", add.info = NULL, incr = 0.01) {
+
+    if (is.null(add.info)) {
+        info <- sprintf("Date: %s\nsrc: %s", Sys.time(), script)
+    } else {
+        info <- sprintf("Date: %s\nsrc: %s\nInfo:\n%s.",
+                        Sys.time(), script, add.info)
+    }
+
+    usr <- par("usr")
+    add <- incr * c(diff(range(usr[1 : 2])), diff(range(usr[3 : 4])))
+    text(usr[1] + add[1], usr[4] - add[2], info, adj = c(0, 1),
+         cex = 0.75 * par("cex"))
+
+}
+
 ##' Default color palette
 ##'
 ##' Wrapper to obtain my default colour palette for filled contour plots, etc.

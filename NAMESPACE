@@ -3,6 +3,7 @@
 export(ColorPal)
 export(ErrorBars)
 export(LoadGraphicsPar)
+export(PlotStamp)
 export(Quartz)
 export(ax.celsiuslab)
 export(ax.freqlab)
