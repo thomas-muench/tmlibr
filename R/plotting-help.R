@@ -245,3 +245,22 @@ rel.hist <- function(x, breaks = "Sturges",
 
 }
 
+##' Default color palette
+##'
+##' Wrapper to obtain my default colour palette for filled contour plots, etc.
+##' @param RCB.pal a palette name from the RColorBrewer lists; defaults to the
+##' diverging \code{RdYlBu} palette.
+##' @param n number of different colours in the palette, minimum 3, maximum
+##' depending on the palette. Default is \code{10} for \code{RdYlBu}.
+##' @return a function that takes an integer argument (the required number of
+##' colours) and returns a character vector of colours.
+##' @author Thomas Münch
+##' @seealso \code{\link{colorRampPalette}};
+##' \code{\link{RColorBrewer::brewer.pal}}
+##' @export
+ColorPal <- function(RCB.pal = "RdYlBu", n = 10) {
+
+    require(RColorBrewer)
+    pal <- colorRampPalette(rev(RColorBrewer::brewer.pal(n, RCB.pal)))
+}
+
