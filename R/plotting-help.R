@@ -201,3 +201,47 @@ ErrorBars <- function(x, y, upper, lower = upper, width = 0.05,
 
 }
 
+##' Relative histograms
+##'
+##' Compute and plot relative histograms with respect to the total or the
+##' maximum of the counts.
+##' @param max.normalize if \code{TRUE}, normalize the counts to their maximum
+##' value; else normalize with respect to the sum of the counts (the default).
+##' @param add logical. If ‘TRUE’, only the bars are added to the current plot.
+##' @inheritParams graphics::hist
+##' @param ... further arguments passed on to \code{plot}.
+##' @return Invisibly, the resulting object of class \code{"histogram"}.
+##' @seealso \code{\link{hist}}
+##' @author Thomas Münch
+##' @examples
+##' x <- rnorm(1000)
+##'
+##' # **counts** sum up to one:
+##' h <- rel.hist(x)
+##' sum(h$counts)
+##' # per default, histogram **area** sums up to one:
+##' h <- hist(x, plot = FALSE)
+##' plot(h, freq = FALSE)
+##' sum(h$density) * diff(h$breaks)[1]
+##'
+##' # counts normalized to maximum value:
+##' rel.hist(x, max.normalize = TRUE)
+##' @export
+rel.hist <- function(x, breaks = "Sturges",
+                     max.normalize = FALSE, add = FALSE, ...) {
+
+    h <- hist(x, breaks = breaks, plot = FALSE)
+
+    if (max.normalize) {
+        norm <- max(h$counts)
+    } else {
+        norm <- sum(h$counts)
+    }
+
+    h$counts <- h$counts / norm
+    plot(h, freq = TRUE, add = add, ...)
+
+    invisible(h)
+
+}
+
